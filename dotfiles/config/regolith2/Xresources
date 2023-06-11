@@ -1,0 +1,43 @@
+! regolith.wallpaper.file: ~/Documents/wallpapers/_paint.png
+! regolith.wallpaper.options: zoom
+
+
+
+! i3-wm.workspace.01.name: 1:FOO
+
+! Key([mod, "shift"], "r", lazy.restart(), desc='Restart Qtile'),
+
+! Key([mod, "shift"], "Return", lazy.spawn("rofi -show drun -display-drun \"Run: \" -drun-display-format \"{name}\""), desc='Run Launcher'! Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+! Key([mod, "shift"], "c", lazy.window.kill(), desc='Kill active window'),
+! Key([mod, "shift"], "q", lazy.shutdown(), desc='Shutdown Qtile'),
+! Key([mod, "shift"], "s", lazy.spawn(app_lock), desc='Lock Qtile'),
+! Key([mod, "shift"], "f", lazy.spawn(app_file), desc='File manager'),
+! Key([mod, "shift"], "b", lazy.spawn(app_browser), desc='Browser'),
+! Key([mod, "shift"], "t", lazy.spawn(app_selected_zone_screenshot), desc='Selected zone screenshot'),
+! Key([mod, "control"], "t", lazy.spawn(app_active_windows_screenshot), desc='Active window screenshot'),
+!     
+! # Switch between windows
+! Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
+! Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
+! Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
+! Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+! Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+
+! Key([mod, "control"], "h", lazy.screen.prev_group(), desc='Move focus to prev monitor'),
+! Key([mod, "control"], "l", lazy.screen.next_group(), desc='Move focus to next monitor'),
+! 
+! Key([mod, "shift", "control"], "h", lazy.function(window_to_prev_group), desc='Move windos to prev monitor'),
+! Key([mod, "shift", "control"], "l", lazy.function(window_to_next_group), desc='Move windows to next monitor'),
+! Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+! Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+! 
+! Key([mod, "shift"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+! Key([mod, "shift"], "h", lazy.layout.shrink_main(), desc="Grow window to the left"),
+! Key([mod, "shift"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+! Key([mod, "shift"], "l", lazy.layout.grow_main(), desc="Grow window to the right"),
+! Key([mod, "shift"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+! Key([mod, "shift"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+
+! regolith.look.path: /usr/share/regolith-look/scalaci
+!regolith.look.path: /usr/share/regolith-look/scalaci
+regolith.look.path: /usr/share/regolith-look/scalaci

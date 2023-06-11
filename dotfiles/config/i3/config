@@ -1,0 +1,73 @@
+# Provide window class to float above tiled windows
+floating_maximum_size -1 x -1
+for_window [class="floating_window"] floating enable
+
+# Set titlebar mode
+default_floating_border pixel 1
+default_border pixel 12
+
+# Enable popup during fullscreen
+popup_during_fullscreen smart
+
+# window focus follows your mouse movements as the mouse crosses window borders
+focus_follows_mouse yes
+
+###############################################################################
+# Meta Key Mappings
+###############################################################################
+
+# Meta Key - Alt key is Mod1, and Windows key is Mod4
+set_from_resource $mod  i3-wm.mod Mod4
+set_from_resource $alt  i3-wm.alt Mod1
+
+###############################################################################
+# i3 Colors and Fonts
+###############################################################################
+
+# Window Border color
+# class                 border                             background                         text                               indicator                          child_border
+client.focused          $focused.color.border              $focused.color.background          $focused.color.text                $focused.color.indicator           $focused.color.child_border
+client.focused_inactive $focused_inactive.color.border     $focused_inactive.color.background $focused_inactive.color.text       $focused_inactive.color.indicator  $focused_inactive.color.child_border
+client.unfocused        $unfocused.color.border            $unfocused.color.background        $unfocused.color.text              $unfocused.color.indicator         $unfocused.color.child_border
+client.urgent           $urgent.color.border               $urgent.color.background           $urgent.color.text                 $urgent.color.indicator            $urgent.color.child_border
+
+font pango:DejaVu Sans Mono 8
+
+###############################################################################
+# i3 Config Partials
+###############################################################################
+
+include $HOME/.config/i3/config.d/*
+
+exec --no-startup-id volumeicon 
+exec --no-startup-id nm-applet
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id picom 
+exec --no-startup-id gnome-screensaver
+
+###############################################################################
+# i3-gaps Window Resize
+###############################################################################
+
+for_window [tiling_from="user"] border pixel 0
+for_window [tiling_from="auto"] border pixel 0
+for_window [floating_from="user"] border pixel 0
+
+## Resize // Big Window Gaps // <><Shift> + - ##
+# bindsym $mod+$i3-wm.binding.dec_gaps_big gaps inner current minus 6 
+# bindsym $mod+$i3-wm.binding.inc_gaps_big gaps inner current plus 6 
+
+###############################################################################
+# i3-gaps Appearance and Behavior
+###############################################################################
+
+# Specify the distance between windows in pixels. (i3-gaps)
+gaps inner 0 
+gaps outer 0
+
+# set_from_resource $i3-wm.workspace.auto_back_and_forth i3-wm.workspace.auto_back_and_forth no
+# workspace_auto_back_and_forth $i3-wm.workspace.auto_back_and_forth
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+

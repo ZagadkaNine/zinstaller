@@ -1,0 +1,29 @@
+###############################################################################
+# i3-gaps Window Resize
+###############################################################################
+
+for_window [tiling_from="user"] border pixel 0
+for_window [tiling_from="auto"] border pixel 0
+for_window [floating_from="user"] border pixel 0
+
+## Resize // Window Gaps // <> + - ##
+# set_from_resource $i3-wm.binding.inc_gaps i3-wm.binding.inc_gaps plus
+# set_from_resource $i3-wm.binding.dec_gaps i3-wm.binding.dec_gaps minus
+# bindsym $mod+$i3-wm.binding.dec_gaps gaps inner current minus 6
+# bindsym $mod+$i3-wm.binding.inc_gaps gaps inner current plus 6
+
+## Resize // Big Window Gaps // <><Shift> + - ##
+bindsym $mod+$i3-wm.binding.dec_gaps_big gaps inner current minus 6 
+bindsym $mod+$i3-wm.binding.inc_gaps_big gaps inner current plus 6 
+
+###############################################################################
+# i3-gaps Appearance and Behavior
+###############################################################################
+
+# Specify the distance between windows in pixels. (i3-gaps)
+gaps inner 0 
+gaps outer 0
+
+# Only enable gaps on a workspace when there is at least one container
+# set_from_resource $i3-wm.gaps.smart i3-wm.gaps.smart on
+# smart_gaps $i3-wm.gaps.smart

@@ -1,0 +1,26 @@
+###############################################################################
+# i3 Bar
+###############################################################################
+
+# The bar configuration
+bar {
+  position top 
+  mode dock 
+  font pango:Iosevka Nerd Font 10
+  separator_symbol " " 
+  status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf 
+  tray_output primary 
+  strip_workspace_numbers yes
+
+  colors {
+      background "#22303c"
+      statusline "#ffffff" 
+      separator "#268bd2" 
+
+      focused_workspace "#33658A" "#33658A" "#EEEEEE"
+      active_workspace   "#06969A" "#06969A" "#EEEEEE"
+      inactive_workspace "#15202B" "#15202B" "#EEEEEE" 
+  }
+}
+
+
