@@ -2,10 +2,11 @@
 My complete config install
 
 
-Work in progress ! Works best for Arch. On a fresh install with Anarchy Arch Installer, with Devel and I3.
+Work in progress ! Works best on Ubuntu 23.04 
 
 
 ```
-make arch-install
+sudo apt install git make
+make ubuntu-install
 ```
 
