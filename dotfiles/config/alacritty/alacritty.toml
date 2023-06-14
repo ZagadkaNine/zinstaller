@@ -3,14 +3,19 @@
 
 # [env]
 # TERM = "xterm-256color"
+[colors]
+    # Default colors
+    [colors.primary]
+        # background = "#0B161E" # base
+        background = "#1a1d21" # base
 
-# [window]
-# opacity = 0.9
-# title = "Alacritty"
+[window]
+opacity = 0.96
+title = "Alacritty"
 
-#   [window.padding]
-#   x = 6
-#   y = 6
+[window.padding]
+x = 6
+y = 6
 
 #   [window.class]
 #   instance = "Alacritty"
