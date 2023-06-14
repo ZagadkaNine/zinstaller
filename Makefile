@@ -268,6 +268,8 @@ user:
 	sudo cp -rf $(BASE)/wallpapers/* /usr/share/backgrounds
 	$(RM) $(HOME)/.config/nitrogen
 	cp -rf $(BASE)/dotfiles/config/nitrogen $(HOME)/.config/
+	$(RM) $(HOME)/.xsessionrc
+	$(LN) $(BASE)/dotfiles/xsessionrc $(HOME)/.xsessionrc
 	$(RM) $(HOME)/.config/alacritty
 	$(LN) $(BASE)/dotfiles/config/alacritty $(HOME)/.config/alacritty
 	$(RM) $(HOME)/.config/picom
