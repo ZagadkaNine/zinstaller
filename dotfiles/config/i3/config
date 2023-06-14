@@ -39,11 +39,21 @@ font pango:DejaVu Sans Mono 8
 
 include $HOME/.config/i3/config.d/*
 
+exec --no-startup-id gnome-flashback
+exec --no-startup-id XDG_CURRENT_DESKTOP=GNOME 
+
 exec --no-startup-id volumeicon 
-exec --no-startup-id nm-applet
+exec --no-startup-id dbus-launch nm-applet
+# exec --no-startup-id nm-applet
+
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom 
 exec --no-startup-id gnome-screensaver
+# exec --no-startup-id /usr/lib/gsd-xsettings
+# exec_always --no-startup-id gnome-power-manager
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id gsettings set org.gnome.gnome-flashback desktop false
+
 
 ###############################################################################
 # i3-gaps Window Resize
@@ -62,7 +72,7 @@ for_window [floating_from="user"] border pixel 0
 ###############################################################################
 
 # Specify the distance between windows in pixels. (i3-gaps)
-gaps inner 0 
+gaps inner 3 
 gaps outer 0
 
 # set_from_resource $i3-wm.workspace.auto_back_and_forth i3-wm.workspace.auto_back_and_forth no

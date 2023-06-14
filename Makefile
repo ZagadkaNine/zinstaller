@@ -38,7 +38,7 @@ ubuntu-base:
 	mkdir -p ~/.local/bin
 	sudo apt-get update && sudo apt-get upgrade
 	$(PKGINSTALL) vim git curl rsync dnsmasq net-tools locate software-properties-common cmake libtool m4 pkg-config automake autotools-dev autoconf htop nmon bpytop tmux snapd lm-sensors inxi rfkill blueman bluez bluez-tools pulseaudio-module-bluetooth libsasl2-dev libldap2-dev libssl-dev gimp xpad pgcli postgresql libxkbcommon-dev mesa-utils volumeicon-alsa bpytop python3-venv lsd zsh
-	$(PKGINSTALL) nitrogen picom vlc tmux nmon libsasl2-dev gimp xpad  flameshot rtorrent  volumeicon-alsa luajit usb-creator-gtk rofi gnome-screensaver
+	$(PKGINSTALL) nitrogen picom vlc tmux nmon libsasl2-dev gimp xpad  flameshot rtorrent  volumeicon-alsa luajit usb-creator-gtk rofi gnome-screensaver gnome-power-manager acpi
 
 regolith-base:
 	mkdir -p ~/.config
@@ -46,7 +46,8 @@ regolith-base:
 	$(PKGINSTALL) fonts-nerd-font-iosevka vim git curl dnsmasq net-tools locate software-properties-common cmake libtool m4 pkg-config automake autotools-dev autoconf htop nmon bpytop tmux snapd lm-sensors make nmon libtool-bin build-essential gettext cargo plocate
 
 arch-base:
-	$(ARCH_PKGINSTALL) pass rsync git curl lightdm lightdm-gtk-greeter lightdm-gtk-greeter lightdm-webkit2-greeter lightdm-pantheon-greeter lightdm-webkit-theme-litarvan lightdm-gtk-greeter-settings picom nitrogen alacritty volumeicon network-manager-applet trayer lxsession xautolock volumeicon lxappearance arc-gtk-theme adapta-gtk-theme arc-solid-gtk-theme deepin-gtk-theme gtk-theme-elementary materia-gtk-theme pop-gtk-theme blueman slock dunst xdotool rofi sudo systemctl enable lightdm
+	$(ARCH_PKGINSTALL) pass rsync git curl lightdm lightdm-gtk-greeter lightdm-gtk-greeter lightdm-webkit2-greeter lightdm-pantheon-greeter lightdm-webkit-theme-litarvan lightdm-gtk-greeter-settings picom nitrogen alacritty volumeicon network-manager-applet trayer lxsession xautolock volumeicon lxappearance arc-gtk-theme adapta-gtk-theme arc-solid-gtk-theme deepin-gtk-theme gtk-theme-elementary materia-gtk-theme pop-gtk-theme blueman slock dunst xdotool rofi sudo 
+	systemctl enable lightdm
 	mkdir -p ~/.config
 	$(RM) $(BASE)/sources/yay-git
 	$(CDSOURCES) &&	$(GITCLONE) https://aur.archlinux.org/yay-git.git 
@@ -125,6 +126,9 @@ regolith-alacritty:
 #			Server	
 #
 #########################################
+
+ubuntu-gdm:
+	$(PKGINSTALL) lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings slick-greeter lxsession xautolock lxappearance slock dunst xdotool 
 
 # arch-lamp:
 # 	$(ARCH_PKGINSTALL) apache php-apache mariadb mariadb-clients mod_itk dnsmasq php php-gd php-imagick imagemagick
