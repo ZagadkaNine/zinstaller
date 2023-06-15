@@ -38,14 +38,17 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Return exec --no-startup-id alacritty 
 
 ## Launch // Browser // <><Shift> Enter ##
-bindsym $mod+Shift+b exec --no-startup-id brave 
+bindsym $mod+b exec --no-startup-id brave 
+
+## Launch // File Manager // <><Shift> f ##
+bindsym $mod+e exec --no-startup-id nautilus 
 
 ## session // lock screen // <><shift> s ##
 # bindsym $mod+Shift+s exec dm-tool lock
-bindsym $mod+Shift+s exec gnome-screensaver-command -l 
+bindsym $mod+s exec gnome-screensaver-command -l 
 
 ## session // Launch password // <><shift> p ##
-bindsym $mod+Shift+p exec --no-startup-id ~/.local/bin/rofi-pass 
+bindsym $mod+p exec --no-startup-id ~/.local/bin/rofi-pass 
 
 ## session // Launch programs // <><shift> Enter ##
 bindsym $mod+Shift+Return exec --no-startup-id rofi -show drun -display-drun \"Run: \" -drun-display-format \"{name}\" 
