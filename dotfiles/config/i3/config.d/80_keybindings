@@ -41,7 +41,7 @@ bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+b exec --no-startup-id brave 
 
 ## Launch // File Manager // <><Shift> f ##
-bindsym $mod+e exec --no-startup-id nautilus 
+bindsym $mod+f exec --no-startup-id nautilus 
 
 ## session // lock screen // <><shift> s ##
 # bindsym $mod+Shift+s exec dm-tool lock
@@ -101,10 +101,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 ## Modify // Window Fullscreen Toggle // <> f ##
-bindsym $mod+f fullscreen toggle
+bindsym $mod+t fullscreen toggle
 
 ## Modify // Window Floating Toggle // <><Shift> f ##
-bindsym $mod+Shift+f floating toggle
+bindsym $mod+Shift+t floating toggle
 
 ## Modify // Move Window to Workspace 1 - 10 // <><Shift> 0..9 ##
 bindsym $mod+Shift+1 move container to workspace number $ws1

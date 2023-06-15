@@ -313,6 +313,7 @@ ubuntu-snaps:
 	$(SNAPINSTALL) spotify --classic
 	$(SNAPINSTALL) postman --classic
 	$(SNAPINSTALL) discard 
+	$(SNAPINSTALL) inkscape 
 
 regolith-snaps:
 	$(SNAPINSTALL) core
