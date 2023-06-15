@@ -311,6 +311,7 @@ ubuntu-snaps:
 	$(SNAPINSTALL) enpass
 	$(SNAPINSTALL) spotify --classic
 	$(SNAPINSTALL) postman --classic
+	$(SNAPINSTALL) discard 
 
 regolith-snaps:
 	$(SNAPINSTALL) core
@@ -321,6 +322,7 @@ regolith-snaps:
 	$(SNAPINSTALL) enpass
 	$(SNAPINSTALL) spotify --classic
 	$(SNAPINSTALL) postman --classic
+	$(SNAPINSTALL) discard 
 
 arch-yay:
 	$(YAYINSTALL) slack-desktop 
