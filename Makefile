@@ -38,7 +38,7 @@ ubuntu-base:
 	mkdir -p ~/.local/bin
 	sudo apt-get update && sudo apt-get upgrade
 	$(PKGINSTALL) vim git curl rsync dnsmasq net-tools locate software-properties-common cmake libtool m4 pkg-config automake autotools-dev autoconf htop nmon bpytop tmux snapd lm-sensors inxi rfkill blueman bluez bluez-tools pulseaudio-module-bluetooth libsasl2-dev libldap2-dev libssl-dev gimp xpad pgcli postgresql libxkbcommon-dev mesa-utils volumeicon-alsa bpytop python3-venv lsd zsh
-	$(PKGINSTALL) nitrogen picom vlc tmux nmon libsasl2-dev gimp xpad  flameshot rtorrent  volumeicon-alsa luajit usb-creator-gtk rofi gnome-screensaver gnome-power-manager acpi neofetch lxappearance gnome-flashback ansible
+	$(PKGINSTALL) nitrogen picom vlc tmux nmon libsasl2-dev gimp xpad  flameshot rtorrent  volumeicon-alsa luajit usb-creator-gtk rofi gnome-screensaver gnome-power-manager acpi neofetch lxappearance gnome-flashback ansible ripgrep
 	
 
 regolith-base:

@@ -32,11 +32,17 @@ nnoremap("<leader>h", "<cmd>lua require('harpoon.ui').nav_prev()<CR>")
 nnoremap("<leader>v", "<cmd>vsplit<CR>")
 
 -- saga
-nnoremap("gd", "<cmd>Lspsaga peek_definition<CR>")
-nnoremap("gh", "<cmd>Lspsaga lsp_finder<CR>")
-nnoremap("gl", "<cmd>Lspsaga show_line_diagnostics<CR>")
-nnoremap("gf", "<cmd>Lspsaga hover_doc<CR>")
-nnoremap("ga", "<cmd>Lspsaga code_action<CR>")
+-- nnoremap("gd", "<cmd>Lspsaga peek_definition<CR>")
+-- nnoremap("gh", "<cmd>Lspsaga lsp_finder<CR>")
+-- nnoremap("gl", "<cmd>Lspsaga show_line_diagnostics<CR>")
+-- nnoremap("gf", "<cmd>Lspsaga hover_doc<CR>")
+-- nnoremap("ga", "<cmd>Lspsaga code_action<CR>")
+
+-- nnoremap("gd", "<cmd>call CocActionAsync('jumpDefinition')<CR>")
+-- nnoremap("gh", "<cmd>Lspsaga lsp_finder<CR>")
+-- nnoremap("gl", "<cmd>Lspsaga show_line_diagnostics<CR>")
+-- nnoremap("gf", "<cmd>Lspsaga hover_doc<CR>")
+-- nnoremap("ga", "<cmd>Lspsaga code_action<CR>")
 
 -- greatest remap ever
 xnoremap("<leader>p", "\"_dP")
