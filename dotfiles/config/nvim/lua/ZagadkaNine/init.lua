@@ -3,12 +3,11 @@ require("ZagadkaNine.packer")
 require("ZagadkaNine.remap")
 require("ZagadkaNine.lsp.lsp")
 require("ZagadkaNine.makefile")
-require("ZagadkaNine.test")
-require("ZagadkaNine.coc")
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
+
 
 vim.notify = require("notify")
 vim.cmd 'autocmd BufRead,BufNewFile *.yml set filetype=yaml.ansible'
@@ -28,4 +27,4 @@ autocmd('TextYankPost', {
     end
 })
 
-require('hardline').setup {}
+-- require('hardline').setup {}

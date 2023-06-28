@@ -2,6 +2,7 @@ BASE = $(PWD)
 LN = ln -vsf
 LNDIR = ln -vs
 PKGINSTALL = sudo apt-get -y install 
+NALAINSTALL = sudo nala install 
 ARCH_PKGINSTALL = sudo pacman -Sy --noconfirm
 NPMINSTALL = sudo npm i -g
 SNAPINSTALL = sudo snap install
@@ -37,8 +38,8 @@ ubuntu-base:
 	mkdir -p ~/.local
 	mkdir -p ~/.local/bin
 	sudo apt-get update && sudo apt-get upgrade
-	$(PKGINSTALL) vim git curl rsync dnsmasq net-tools locate software-properties-common cmake libtool m4 pkg-config automake autotools-dev autoconf htop nmon bpytop tmux snapd lm-sensors inxi rfkill blueman bluez bluez-tools pulseaudio-module-bluetooth libsasl2-dev libldap2-dev libssl-dev gimp xpad pgcli postgresql libxkbcommon-dev mesa-utils volumeicon-alsa bpytop python3-venv lsd zsh
-	$(PKGINSTALL) nitrogen picom vlc tmux nmon libsasl2-dev gimp xpad  flameshot rtorrent  volumeicon-alsa luajit usb-creator-gtk rofi gnome-screensaver gnome-power-manager acpi neofetch lxappearance gnome-flashback ansible ripgrep
+	$(PKGINSTALL) nala
+	$(NALAINSTALL) vim git curl rsync dnsmasq net-tools locate software-properties-common cmake libtool m4 pkg-config automake autotools-dev autoconf htop nmon bpytop tmux snapd lm-sensors inxi rfkill blueman bluez bluez-tools pulseaudio-module-bluetooth libsasl2-dev libldap2-dev libssl-dev gimp xpad pgcli postgresql libxkbcommon-dev mesa-utils volumeicon-alsa bpytop python3-venv lsd zsh nitrogen picom vlc tmux nmon libsasl2-dev gimp xpad  flameshot rtorrent  volumeicon-alsa luajit usb-creator-gtk rofi gnome-screensaver gnome-power-manager acpi neofetch lxappearance gnome-flashback ansible ripgrep
 	
 
 regolith-base:
@@ -181,7 +182,10 @@ arch-node:
 	$(ARCH_PKGINSTALL) nodejs npm 
 	
 ubuntu-python:
-	$(PKGINSTALL) python3 python3-pip python3-venv python3-ipython python3-psutil
+	$(PKGINSTALL) python3 python3-pip python3-venv python3-ipython python3-psutil mypy
+	mypy --install-types --non-interactive
+	pip install --break-system-packages ruff
+	pip install --break-system-packages types-python-xlib
 
 arch-python:
 	$(ARCH_PKGINSTALL) python-virtualenvwrapper ipython python-psutil python-pip
