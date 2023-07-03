@@ -248,6 +248,17 @@ ubuntu-jetbrains:
 
 ubuntu-virtualization:
 	$(PKGINSTALL) virtualbox virtualbox-ext-pack 
+	$(NALAINSTALL) qemu-kvm qemu-system qemu-utils python3 python3-pip libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-manager
+	sudo systemctl enable libvirtd.service
+	sudo systemctl start libvirtd.service
+	sudo virsh net-start default
+	sudo virsh net-autostart default
+	sudo virsh net-list --all
+	sudo usermod -aG libvirt $USER
+	sudo usermod -aG libvirt-qemu $USER
+	sudo usermod -aG kvm $USER
+	sudo usermod -aG input $USER
+	sudo usermod -aG disk $USER
 
 #########################################
 #
