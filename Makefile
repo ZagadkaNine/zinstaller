@@ -131,6 +131,14 @@ regolith-alacritty:
 
 ubuntu-gdm:
 	$(PKGINSTALL) lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings slick-greeter lxsession xautolock lxappearance slock dunst xdotool 
+	# $(NALAINSTALL) libgtkmm-3.0-dev libwebkit2gtk-4.0-dev gnome-common
+	# pip install --break-system-packages whither
+	# pip install --break-system-packages pygobject 
+	# $(CDSOURCES) &&	$(GITCLONE) https://github.com/Antergos/web-greeter.github
+	# $(CDSOURCES)/greeter && sudo make install
+
+
+
 
 # arch-lamp:
 # 	$(ARCH_PKGINSTALL) apache php-apache mariadb mariadb-clients mod_itk dnsmasq php php-gd php-imagick imagemagick
@@ -329,7 +337,7 @@ ubuntu-snaps:
 	$(SNAPINSTALL) enpass
 	$(SNAPINSTALL) spotify --classic
 	$(SNAPINSTALL) postman --classic
-	$(SNAPINSTALL) discard 
+	$(SNAPINSTALL) discord 
 	$(SNAPINSTALL) inkscape 
 
 regolith-snaps:
@@ -341,7 +349,7 @@ regolith-snaps:
 	$(SNAPINSTALL) enpass
 	$(SNAPINSTALL) spotify --classic
 	$(SNAPINSTALL) postman --classic
-	$(SNAPINSTALL) discard 
+	$(SNAPINSTALL) discord 
 
 arch-yay:
 	$(YAYINSTALL) slack-desktop 
