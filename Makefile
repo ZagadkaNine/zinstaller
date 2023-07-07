@@ -278,7 +278,12 @@ ubuntu-i3:
 	$(PKGINSTALL) i3 i3status i3blocks i3pystatus
 	$(CDSOURCES) &&	$(GITCLONE) https://github.com/i3-gnome/i3-gnome.git
 	$(CDSOURCES)/i3-gnome/ && sudo make install
-	
+
+ubuntu-qtile:
+	$(NALAINSTALL) libpangocairo-1.0-0 python3-cffi python3-cairocffi
+	$(CDSOURCES) &&	$(GITCLONE) https://github.com/qtile/qtile
+	$(CDSOURCES)/qtile/ && pip install --break-system-packages .
+
 #########################################
 #
 #			  User
