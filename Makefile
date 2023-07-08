@@ -314,6 +314,8 @@ user:
 	$(LN) $(BASE)/dotfiles/config/i3blocks $(HOME)/.config/i3blocks
 	$(RM) $(HOME)/.config/i3
 	$(LN) $(BASE)/dotfiles/config/i3 $(HOME)/.config/i3
+	$(RM) $(HOME)/.config/qtile
+	$(LN) $(BASE)/dotfiles/config/qtile $(HOME)/.config/qtile
 	$(RM) $(HOME)/.config/gtk-2.0
 	$(LN) $(BASE)/dotfiles/config/gtk-2.0 $(HOME)/.config/gtk-2.0
 	$(RM) $(HOME)/.config/gtk-3.0
