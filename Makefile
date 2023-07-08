@@ -282,7 +282,7 @@ ubuntu-i3:
 ubuntu-qtile:
 	$(NALAINSTALL) libpangocairo-1.0-0 python3-cffi python3-cairocffi
 	$(CDSOURCES) &&	$(GITCLONE) https://github.com/qtile/qtile
-	$(CDSOURCES)/qtile/ && pip install --break-system-packages .
+	$(CDSOURCES)/qtile/ && sudo pip install --break-system-packages .
 
 #########################################
 #

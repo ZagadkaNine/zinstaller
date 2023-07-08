@@ -1,6 +1,49 @@
+--[[
+
+=====================================================================
+==================== READ THIS BEFORE CONTINUING ====================
+=====================================================================
+
+Kickstart.nvim is *not* a distribution.
+
+Kickstart.nvim is a template for your own configuration.
+  The goal is that you can read every line of code, top-to-bottom, understand
+  what your configuration is doing, and modify it to suit your needs.
+
+  Once you've done that, you should start exploring, configuring and tinkering to
+  explore Neovim!
+
+  If you don't know anything about Lua, I recommend taking some time to read through
+  a guide. One possible example:
+  - https://learnxinyminutes.com/docs/lua/
+
+  And then you can explore or search through `:help lua-guide`
+
+
+Kickstart Guide:
+
+I have left several `:help X` comments throughout the init.lua
+You should run that command and read that help section for more information.
+
+In addition, I have some `NOTE:` items throughout the file.
+These are for you, the reader to help understand what is happening. Feel free to delete
+them once you know what you're doing, but they should serve as a guide for when you
+are first encountering a few different constructs in your nvim config.
+
+I hope you enjoy your Neovim journey,
+- TJ
+
+P.S. You can delete this when you're done too. It's your config now :)
+--]]
+-- Set <space> as the leader key
+-- See `:help mapleader`
+--  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Install package manager
+--    https://github.com/folke/lazy.nvim
+--    `:help lazy.nvim.txt` for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -14,44 +57,21 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- NOTE: Here is where you install your plugins.
+--  You can configure plugins using the `config` key.
+--
+--  You can also configure plugins after the setup call,
+--    as they will be available in your neovim runtime.
 require('lazy').setup({
+  -- NOTE: First, some plugins that don't require any configuration
+
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  'tpope/vim-commentary',
-  'kosayoda/nvim-lightbulb',
-  'lilydjwg/colorizer',
-  'github/copilot.vim',
-  'pearofducks/ansible-vim',
-  {
-    'ThePrimeagen/harpoon',
-    requires = { 'nvim-lua/plenary.nvim'},
-  },
-  {
-    'catppuccin/nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'catppuccin'
-      vim.api.nvim_command("hi Normal guibg=#CC1F2430")
-      vim.api.nvim_command("hi NormalFloat guibg=#1F2430")
-      vim.api.nvim_command("hi NormalNC guibg=#CC1F2430")
-      vim.api.nvim_command("hi NvimTreeNormal guibg=#CC1F2430")
-      -- vim.api.nvim_command("hi WinSeparator guibg=#1F2430")
-      -- vim.api.nvim_command("hi NvimTreeWinSeparator guifg=#1F2430")
-      -- vim.api.nvim_command("hi NvimTreeWinSeparator guibg=#1F2430")
-      vim.api.nvim_command("hi WinSeparator guibg=#313843")
-      vim.api.nvim_command("hi NvimTreeWinSeparator guifg=#313843")
-      vim.api.nvim_command("hi NvimTreeWinSeparator guibg=#313843")
-    end,
-  },
 
-  {
-      'kyazdani42/nvim-tree.lua',
-      dependencies = { 'kyazdani42/nvim-web-devicons'},
-  },
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -109,6 +129,14 @@ require('lazy').setup({
     },
   },
 
+  {
+    -- Theme inspired by Atom
+    'navarasu/onedark.nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'onedark'
+    end,
+  },
 
   {
     -- Set lualine as statusline
@@ -163,6 +191,19 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
+  --       These are some example plugins that I've included in the kickstart repository.
+  --       Uncomment any of the lines below to enable them.
+  -- require 'kickstart.plugins.autoformat',
+  -- require 'kickstart.plugins.debug',
+
+  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
+  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
+  --    up-to-date with whatever is in the kickstart repo.
+  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
+  --
+  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
+  -- { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -170,7 +211,7 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Set highlight on search
-vim.o.hlsearch = true
+vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
@@ -211,11 +252,11 @@ vim.o.termguicolors = true
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
--- vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
--- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
--- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -319,7 +360,7 @@ require('nvim-treesitter.configs').setup {
     swap = {
       enable = true,
       swap_next = {
-        -- ['<leader>a'] = '@parameter.inner',
+        ['<leader>a'] = '@parameter.inner',
       },
       swap_previous = {
         ['<leader>A'] = '@parameter.inner',
@@ -331,8 +372,8 @@ require('nvim-treesitter.configs').setup {
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
--- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
--- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
@@ -470,63 +511,6 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
-require("nvim-tree").setup({
-    sort_by = "case_sensitive",
-    actions = {
-        open_file = {
-          quit_on_open = false,
-          resize_window = true,
-          window_picker = {
-            enable = true,
-            chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-            exclude = {
-              filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
-              buftype = { "nofile", "terminal", "help" },
-            },
-          },
-        },
-    },
-    view = {
-        width = 50,
-        adaptive_size = false,
-        mappings = {
-            list = {
-                { key = "u", action = "dir_up" },
-            },
-        },
-    },
-    renderer = {
-        group_empty = true,
-    },
-    filters = {
-        dotfiles = false,
-    },
-})
-
-vim.keymap.set('n', '<leader>e', require('nvim-tree.api').tree.toggle, { desc = 'Toggle Treee' })
-
-local nav_file_1 = function()
-  require('harpoon.ui').nav_file(1)
-end
-local nav_file_2 = function()
-  require('harpoon.ui').nav_file(2)
-end
-local nav_file_3 = function()
-  require('harpoon.ui').nav_file(3)
-end
-local nav_file_4 = function()
-  require('harpoon.ui').nav_file(4)
-end
-
-vim.keymap.set('n', '<leader>l', require('harpoon.ui').toggle_quick_menu, { desc = '' })
-vim.keymap.set('n', '<leader>a', require('harpoon.mark').add_file, { desc = '' })
-vim.keymap.set('n', '<leader>1', nav_file_1, { desc = '' })
-vim.keymap.set('n', '<leader>2', nav_file_2, { desc = '' })
-vim.keymap.set('n', '<leader>3', nav_file_3, { desc = '' })
-vim.keymap.set('n', '<leader>4', nav_file_4, { desc = '' })
-vim.keymap.set('n', '<leader>j', require('harpoon.ui').nav_next, { desc = '' })
-vim.keymap.set('n', '<leader>h', require('harpoon.ui').nav_prev, { desc = '' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
