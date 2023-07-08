@@ -191,7 +191,6 @@ arch-node:
 	
 ubuntu-python:
 	$(PKGINSTALL) python3 python3-pip python3-venv python3-ipython python3-psutil mypy
-	mypy --install-types --non-interactive
 	pip install --break-system-packages ruff
 	pip install --break-system-packages types-python-xlib
 
@@ -315,6 +314,8 @@ user:
 	$(LN) $(BASE)/dotfiles/config/i3blocks $(HOME)/.config/i3blocks
 	$(RM) $(HOME)/.config/i3
 	$(LN) $(BASE)/dotfiles/config/i3 $(HOME)/.config/i3
+	$(RM) $(HOME)/.config/qtile
+	$(LN) $(BASE)/dotfiles/config/qtile $(HOME)/.config/qtile
 	$(RM) $(HOME)/.config/gtk-2.0
 	$(LN) $(BASE)/dotfiles/config/gtk-2.0 $(HOME)/.config/gtk-2.0
 	$(RM) $(HOME)/.config/gtk-3.0
