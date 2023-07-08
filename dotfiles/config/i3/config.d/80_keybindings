@@ -31,7 +31,7 @@ bindsym $mod+Shift+c [con_id="__focused__"] kill
 ## Session // Logout // <><Shift> q ##
 bindsym $mod+Shift+q exec i3-msg exit 
 
-## Session // Restart i3 // <><Shift> r ##
+## Session // Restart // <><Shift> r ##
 bindsym $mod+Shift+r restart
 
 ## Launch // Terminal // <> Enter ##
@@ -66,23 +66,6 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
-## Navigate // Next Workspace // <><Alt> → ##
-# set_from_resource $i3-wm.binding.ws_next2 i3-wm.binding.ws_next2 Right
-# bindsym $mod+$alt+$i3-wm.binding.ws_next2 workspace next
-
-## Navigate // Previous Workspace // <><Shift> Tab ##
-# set_from_resource $i3-wm.binding.ws_prev i3-wm.binding.ws_prev Shift+Tab
-# bindsym $mod+$i3-wm.binding.ws_prev workspace prev
-
-## Navigate // Next Workspace on Output // <><Ctrl> l ##
-# set_from_resource $i3-wm.binding.ws_next_on_output2 i3-wm.binding.ws_next_on_output2 Ctrl+l
-# bindsym $mod+$i3-wm.binding.ws_next_on_output2 workspace next_on_output
-#
-## Navigate // Previous Workspace on Output // <><Ctrl> h ##
-# set_from_resource $i3-wm.binding.ws_prev_on_output2 i3-wm.binding.ws_prev_on_output2 Ctrl+h
-# bindsym $mod+$i3-wm.binding.ws_prev_on_output2 workspace prev_on_output
-
 
 # Toggle bar visibility
 ## Modify // Toggle Bar // <> i ##

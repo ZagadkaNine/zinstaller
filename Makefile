@@ -191,7 +191,6 @@ arch-node:
 	
 ubuntu-python:
 	$(PKGINSTALL) python3 python3-pip python3-venv python3-ipython python3-psutil mypy
-	mypy --install-types --non-interactive
 	pip install --break-system-packages ruff
 	pip install --break-system-packages types-python-xlib
 
