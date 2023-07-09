@@ -528,5 +528,22 @@ vim.keymap.set('n', '<leader>4', nav_file_4, { desc = '' })
 vim.keymap.set('n', '<leader>j', require('harpoon.ui').nav_next, { desc = '' })
 vim.keymap.set('n', '<leader>h', require('harpoon.ui').nav_prev, { desc = '' })
 
+-- nnoremap("<S-h>", "<cmd>vertical resize +5<CR>")
+-- nnoremap("<S-l>", "<cmd>vertical resize -5<CR>")
+-- nnoremap("<S-j>", "<cmd>resize +5<CR>")
+-- nnoremap("<S-k>", "<cmd>resize -5<CR>")
+
+-- vim.keymap.set('n', '<S-h>', "vertical resize +5", { desc = '' })
+-- vim.keymap.set('n', '<S-l>', "vertical resize -5", { desc = '' })
+-- vim.keymap.set('n', '<C-S-j>', "resize +5", { desc = '' })
+-- vim.keymap.set('n', '<C-S-k>', "resize -5", { desc = '' })
+
+vim.keymap.set('n', '<C-j>', "<C-w><C-j>", { desc = '' })
+vim.keymap.set('n', '<C-k>', "<C-w><C-k>", { desc = '' })
+vim.keymap.set('n', '<C-l>', "<C-w><C-l>", { desc = '' })
+vim.keymap.set('n', '<C-h>', "<C-w><C-h>", { desc = '' })
+
+
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
